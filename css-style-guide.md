@@ -69,7 +69,7 @@
 
 [StyleLint](https://stylelint.io/) 详细规则请参考 https://stylelint.io/user-guide/rules/
 
-配置示例:
+`.stylelintrc` 配置示例:
 
 ```stylelint
 {

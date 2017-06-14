@@ -192,12 +192,13 @@ function Calculator() {
 
 ### 2.3 格式
 
-格式配置应用 WebStorm Code Style -> JavaScript -> Predefined Style -> JavaScript Standard Style 标准配置，拓展部分在下面补充。
+- JavaScript 格式配置应用 WebStorm Code Style -> JavaScript -> Predefined Style -> JavaScript Standard Style 标准配置，拓展部分在下面补充。
+  - indent 使用4个空格缩进
+  - quotes 使用单引号
+  - semi   使用分号
+  - no-extra-semi 禁止多余的分号
 
-- indent 使用4个空格缩进
-- quotes 使用单引号
-- semi   使用分号
-- no-extra-semi 禁止多余的分号
+- TypeScript 格式配置应用 WebStorm Code Style -> WebStorm Code Style -> Less 标准配置，拓展部分在下面补充。
 
 ## 3 语言规范
 
@@ -209,7 +210,7 @@ function Calculator() {
 
 详细规则请参考 http://eslint.org/docs/rules/
 
-配置示例:
+`eslintrc` 配置示例:
 
 ```eslint
 {
@@ -276,7 +277,7 @@ function Calculator() {
 
 详细规则请参考 https://palantir.github.io/tslint/rules/
 
-配置示例:
+`tsconfig.json` 配置示例:
 
 ```tslint
 {

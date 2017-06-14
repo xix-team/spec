@@ -24,15 +24,40 @@
 
 ### 2.1 命名
 
+#### [强制] `class` 和 `id`  必须单词全字母小写，单词间以 `-` 分隔。
+
+#### [强制] 元素 `id` 必须保证页面唯一。
+
+#### [建议] `id` 建议单词全字母小写，单词间以 `-` 分隔。
+
 ### 2.2 注释
+
+```html
+<!-- 注释内容 -->
+```
 
 ### 2.3 格式
 
+HTML 格式配置应用 WebStorm Code Style -> HTML 标准配置，拓展部分在下面补充。
+
 ## 3 语言规范
+
+遵循主流风格指南，拓展部分在下面补充。
 
 ## 4 代码检查
 
-HtmlLint https://github.com/htmllint/htmllint/wiki/Options
+[HtmlLint](http://htmllint.github.io/) 详细规则请参考 https://github.com/htmllint/htmllint/wiki/Options
+
+`.htmllintrc` 配置示例:
+
+```htmllint
+{
+  "force": true,
+  "tag-name-lowercase": false,
+  "disable-inline-style": true,
+  "indent-width": 2
+}
+```
 
 ## 5 参考资料
 
