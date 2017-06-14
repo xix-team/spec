@@ -1,0 +1,17 @@
+*.iml
+.idea/
+.ipr
+.iws
+*~
+~*
+*.diff
+*.log
+*.patch
+*.bak
+.DS_Store
+Thumbs.db
+.project
+.*proj
+.svn/
+*.swp
+backup/
