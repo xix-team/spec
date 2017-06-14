@@ -30,8 +30,6 @@
 
 #### 2.1.1 类选择器
 
-[OOCSS](http://oocss.org/) 和 [BEM](http://getbem.com/)
-
 出于以下原因，我们鼓励使用 OOCSS 和 BEM 的某种组合：
 
   * 可以帮助我们理清 CSS 和 HTML 之间清晰且严谨的关系。
@@ -39,19 +37,21 @@
   * 可以减少嵌套，降低特定性。
   * 可以帮助我们创建出可扩展的样式表。
 
-**OOCSS**，也就是 “Object Oriented CSS（面向对象的CSS）”，是一种写 CSS 的方法，其思想就是鼓励你把样式表看作“对象”的集合：创建可重用性、可重复性的代码段让你可以在整个网站中多次使用。
+**OOCSS(http://oocss.org/)**，也就是 “Object Oriented CSS（面向对象的CSS）”，是一种写 CSS 的方法，其思想就是鼓励你把样式表看作“对象”的集合：创建可重用性、可重复性的代码段让你可以在整个网站中多次使用。
 
 参考资料：
 
   * Nicole Sullivan 的 [OOCSS wiki](https://github.com/stubbornella/oocss/wiki)
   * Smashing Magazine 的 [Introduction to OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 
-**BEM**，也就是 “Block-Element-Modifier”，是一种用于 HTML 和 CSS 类名的_命名约定_。BEM 最初是由 Yandex 提出的，要知道他们拥有巨大的代码库和可伸缩性，BEM 就是为此而生的，并且可以作为一套遵循 OOCSS 的参考指导规范。
+**[BEM](http://getbem.com/)**，也就是 “Block-Element-Modifier”，是一种用于 HTML 和 CSS 类名的_命名约定_。BEM 最初是由 Yandex 提出的，要知道他们拥有巨大的代码库和可伸缩性，BEM 就是为此而生的，并且可以作为一套遵循 OOCSS 的参考指导规范。
 
   * CSS Trick 的 [BEM 101](https://css-tricks.com/bem-101/)
   * Harry Roberts 的 [introduction to BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
-**方式1**
+以下两种方式都可以，项目内保持统一。
+
+**命名方式1：**
 
 ```html
 <article class="listing-card listing-card-active">
@@ -77,7 +77,7 @@
   * `.listing-card-title` 是一个元素（element），它属于 `.listing-card` 的一部分，因此块是由元素组成的。
   * `.listing-card-featured` 是一个修饰符（modifier），表示这个块与 `.listing-card` 有着不同的状态或者变化。
 
-**方式2**
+**命名方式2：**
 
 ```html
 <article class="listing-card listing-card--active">
