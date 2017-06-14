@@ -28,8 +28,97 @@
 
 ### 2.1 命名
 
+#### 类选择器
 
-#### [BEM](http://getbem.com/)
+[OOCSS](http://oocss.org/) 和 [BEM](http://getbem.com/)
+
+出于以下原因，我们鼓励使用 OOCSS 和 BEM 的某种组合：
+
+  * 可以帮助我们理清 CSS 和 HTML 之间清晰且严谨的关系。
+  * 可以帮助我们创建出可重用、易装配的组件。
+  * 可以减少嵌套，降低特定性。
+  * 可以帮助我们创建出可扩展的样式表。
+
+**OOCSS**，也就是 “Object Oriented CSS（面向对象的CSS）”，是一种写 CSS 的方法，其思想就是鼓励你把样式表看作“对象”的集合：创建可重用性、可重复性的代码段让你可以在整个网站中多次使用。
+
+参考资料：
+
+  * Nicole Sullivan 的 [OOCSS wiki](https://github.com/stubbornella/oocss/wiki)
+  * Smashing Magazine 的 [Introduction to OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
+
+**BEM**，也就是 “Block-Element-Modifier”，是一种用于 HTML 和 CSS 类名的_命名约定_。BEM 最初是由 Yandex 提出的，要知道他们拥有巨大的代码库和可伸缩性，BEM 就是为此而生的，并且可以作为一套遵循 OOCSS 的参考指导规范。
+
+  * CSS Trick 的 [BEM 101](https://css-tricks.com/bem-101/)
+  * Harry Roberts 的 [introduction to BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+
+**方式1**
+
+```html
+<article class="listing-card listing-card-active">
+
+  <h1 class="listing-card-title">标题</h1>
+
+  <div class="listing-card-content">
+    <p>内容</p>
+  </div>
+
+</article>
+```
+
+```css
+.listing-card{ }
+.listing-card-active{ }
+.listing-card-title{ }
+.listing-card-content{ }
+.listing-card-footer{ }
+```
+
+  * `.listing-card` 是一个块（block），表示高层次的组件。
+  * `.listing-card-title` 是一个元素（element），它属于 `.listing-card` 的一部分，因此块是由元素组成的。
+  * `.listing-card-featured` 是一个修饰符（modifier），表示这个块与 `.listing-card` 有着不同的状态或者变化。
+
+**方式2**
+
+```html
+<article class="listing-card listing-card--active">
+
+  <h1 class="listing-card__title">标题</h1>
+
+  <div class="listing-card__content">
+    <p>内容</p>
+  </div>
+
+</article>
+```
+
+```css
+.listing-card { }
+.listing-card--active { }
+.listing-card__title { }
+.listing-card__content { }
+```
+
+  * `.listing-card` 是一个块（block），表示高层次的组件。
+  * `.listing-card__title` 是一个元素（element），它属于 `.listing-card` 的一部分，因此块是由元素组成的。
+  * `.listing-card--featured` 是一个修饰符（modifier），表示这个块与 `.listing-card` 有着不同的状态或者变化。
+
+#### ID 选择器
+
+在 CSS 中，虽然可以通过 ID 选择元素，但大家通常都会把这种方式列为反面教材。ID 选择器给你的规则声明带来了不必要的高[优先级](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)，而且 ID 选择器是不可重用的。
+
+想要了解关于这个主题的更多内容，参见 [CSS Wizardry 的文章](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)，文章中有关于如何处理优先级的内容。
+
+#### JavaScript 钩子
+
+避免在 CSS 和 JavaScript 中绑定相同的类。否则开发者在重构时通常会出现以下情况：轻则浪费时间在对照查找每个要改变的类，重则因为害怕破坏功能而不敢作出更改。
+
+我们推荐在创建用于特定 JavaScript 的类名时，添加 `.js-` 前缀：
+
+```html
+<button class="btn btn-primary js-request-to-book">Request to Book</button>
+```
+
+#### 命名空间
 
 #### 常用命名
 
@@ -125,8 +214,7 @@
 - https://github.com/ecomfe/spec/blob/master/less-code-style.md
 - https://github.com/ElemeFE/style-guide/blob/master/css-modulize.md
 - https://github.com/airbnb/javascript/tree/master/css-in-javascript
-- https://github.com/Zhangjd/css-style-guide#注释
-- https://github.com/ElemeFE/style-guide/blob/master/css-modulize.md
+- https://github.com/Zhangjd/css-style-guide
 
 #### [返回目录](README.md)
 #### [回到顶部](#)
