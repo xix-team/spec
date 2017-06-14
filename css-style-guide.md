@@ -22,13 +22,13 @@
 
 ## 2 风格规范
 
-以行业内主流风格指南为基础，拓展符合我们团队的最佳实践。使 JavaScript 代码风格保持一致，容易被理解和被维护。
+以行业内主流风格指南为基础，拓展符合我们团队的最佳实践。使 CSS 代码风格保持一致，容易被理解和被维护。
 
   - CSS [中文版](https://github.com/Zhangjd/css-style-guide) | [English](https://github.com/airbnb/css)
 
 ### 2.1 命名
 
-#### 类选择器
+#### 2.1.1 类选择器
 
 [OOCSS](http://oocss.org/) 和 [BEM](http://getbem.com/)
 
@@ -102,13 +102,13 @@
   * `.listing-card__title` 是一个元素（element），它属于 `.listing-card` 的一部分，因此块是由元素组成的。
   * `.listing-card--featured` 是一个修饰符（modifier），表示这个块与 `.listing-card` 有着不同的状态或者变化。
 
-#### ID 选择器
+#### 2.1.2 ID 选择器
 
 在 CSS 中，虽然可以通过 ID 选择元素，但大家通常都会把这种方式列为反面教材。ID 选择器给你的规则声明带来了不必要的高[优先级](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)，而且 ID 选择器是不可重用的。
 
 想要了解关于这个主题的更多内容，参见 [CSS Wizardry 的文章](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/)，文章中有关于如何处理优先级的内容。
 
-#### JavaScript 钩子
+#### 2.1.3 JavaScript 钩子
 
 避免在 CSS 和 JavaScript 中绑定相同的类。否则开发者在重构时通常会出现以下情况：轻则浪费时间在对照查找每个要改变的类，重则因为害怕破坏功能而不敢作出更改。
 
@@ -118,9 +118,9 @@
 <button class="btn btn-primary js-request-to-book">Request to Book</button>
 ```
 
-#### 命名空间
+#### 2.1.4 命名空间
 
-#### 常用命名
+#### 2.1.5 常用命名
 
 待完善
   
