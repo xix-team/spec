@@ -1,5 +1,7 @@
 # JavaScript \ EMCAScript \ TypeScript 风格指南 (草稿)
 
+#### [返回目录](README.md)
+
 [1 引言](#1-引言)
 
 [2 风格规范](#2-风格规范)
@@ -314,3 +316,6 @@ function Calculator() {
 - http://www.css88.com/doc/jsdoc/index.html
 - https://github.com/aralejs/aralejs.github.io/issues/36
 - https://github.com/aralejs/aralejs.github.io/wiki/JavaScript-注释规范
+
+#### [返回目录](README.md)
+#### [回到顶部](#)
