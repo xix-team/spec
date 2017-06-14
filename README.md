@@ -1,4 +1,4 @@
-# spec
+# 开发规范手册
 
 - [JavaScript \ EMCAScript \ TypeScript 风格指南](javascript-style-guide.md) [草稿]
 - [CSS \ Less \ Sass 风格指南](css-style-guide.md) [草稿]
