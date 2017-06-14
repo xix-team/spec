@@ -20,7 +20,9 @@
 
 ## 1 引言
 
-以行业内主流风格指南为基础，拓展符合我们团队的最佳实践。使 CSS 代码风格保持一致，容易被理解和被维护。
+以行业内主流风格指南为基础，拓展符合我们团队的最佳实践。
+
+使 CSS 代码风格保持一致，容易被理解和被维护。
 
   - CSS [中文版](https://github.com/Zhangjd/css-style-guide) | [English](https://github.com/airbnb/css)
   
