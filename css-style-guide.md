@@ -20,11 +20,20 @@
 
 ## 1 引言
 
-以行业内主流风格指南为基础，拓展符合我们团队的最佳实践。
+### 1.1 原则
 
-使 CSS 代码风格保持一致，容易被理解和被维护。
+- 坚持遵循同一套代码规范，代码同出一门，保持整洁、易读、一致，更容易被理解和被维护。
+- 对待规范，要严格遵守；对待风格，要懂得尊重。
+- 如果你想要为这个规范做贡献或觉得有不合理的地方，请访问New Issue。
 
-  - CSS [中文版](https://github.com/Zhangjd/css-style-guide) | [English](https://github.com/airbnb/css)
+### 1.2 说明
+
+本文档以 `Airbnb CSS Style Guide` 为基础，编写符合自己团队的风格指南；
+统一了**命名**和**注释**两大痛点，就统一了80%的风格，所以我们重点拓展这两部分内容，其他部分请根据团队约定在文档内补充。
+
+### 1.3 基础
+
+- CSS [中文版](https://github.com/Zhangjd/css-style-guide) | [English](https://github.com/airbnb/css)
   
 ## 2 风格规范
 
