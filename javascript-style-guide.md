@@ -170,28 +170,33 @@ function foo(p1, p2, opt_p3) {
 }
 ```
 
+#### 2.2.6 特殊注释
+
+特殊注释标记，请注明标记人与标记时间。注意及时处理这些标记，通过标记扫，经常清理此类标记。线上故障有时候就是来源于这些标记处的代码。
+
 给注释增加 `FIXME` 或 `TODO` 的前缀可以帮助其他开发者快速了解这是一个需要复查的问题，或是给需要实现的功能提供一个解决方式。这将有别于常见的注释，因为它们是可操作的。
 使用 `FIXME -- need to figure this out` 或者 `TODO -- need to implement`。
 
-- 使用 `// FIXME:` 标注问题。
+
+- 使用 `// TODO: 问题的解决方式，标记人，标记时间，[预计处理时间]` 标注待办事宜，表示需要实现，但目前还未实现的功能。
 
 ```javascript
 function Calculator() {
 
-  // FIXME: shouldn't use a global here
-  total = 0;
+  // TODO: 此字段应当配置到参数中 asoiso 2017-06-15
+  this.total = 0;
 
   return this;
 }
 ```
 
-- 使用 `// TODO:` 标注问题的解决方式。
+- 使用 `// FIXME: 问题描述，标记人，标记时间，[预计处理时间]` 标记某代码是错误的，而且不能工作，需要及时纠正的情况。
 
 ```javascript
 function Calculator() {
 
-  // TODO: total should be configurable by an options param
-  this.total = 0;
+  // FIXME: 此处不应该使用全局变量 asoiso 2017-06-15
+  total = 0;
 
   return this;
 }
