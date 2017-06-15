@@ -7,13 +7,13 @@
 ## 目录命名
 
 - 使用 `all-lowercase-with-dashes` 命名方式。文件名建议只使用小写字母，不使用大写字母；文件名包含多个单词时，单词之间建议使用半角的连词线（-）分隔。 
-- 简洁。有习惯性缩写的单词 必须采用容易理解的缩写。如：源代码目录必须使用`src`，不得使用`source`。下面是更多例子：
-    - `img`: 图片。 不得使用`image`、`images`、`imgs`等。
-    - `js`: javascript脚本。 不得使用`script`、`scripts`等。
-    - `css`: 样式表。 不得使用`style`、`styles`等。
-    - `swf`: flash。 不得使用`flash`等。
-    - `src`: 源文件目录。 不得使用`source`等。
-    - `lib`: 依赖包目录。 不得使用`library`、`dependency`等。
+- 简洁。有习惯性缩写的单词 必须采用容易理解的缩写。下面是例子：
+  - `img`: 图片。 不得使用`image`、`images`、`imgs`等。
+  - `js`: javascript脚本。 不得使用`script`、`scripts`等。
+  - `css`: 样式表。 不得使用`style`、`styles`等。
+  - `swf`: flash。 不得使用`flash`等。
+  - `src`: 源文件目录。 不得使用`source`等。
+  - `lib`: 依赖包目录。 不得使用`library`、`dependency`等。
 - 不得使用复数形式，目录就是用于存放多个文件，所以不需要使用多余的复数形式。如：`imgs`、`docs`、`images`、`tpls`、`examples`、`tests`是不被允许的。
 
 > 扩展阅读 [all-lowercase-with-dashes](http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html)
