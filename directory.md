@@ -94,38 +94,44 @@ src目录内，绝大多数情况 *应当* 根据业务逻辑划分目录结构�
 
 通常，对于一个`业务目录`， *鼓励* 将业务相关的`源文件资源`都直接置于`业务目录`下。
 
+```
     biz1/
         img/
             add_button.png
         add.js
         add.tpl
         add.css
+```
 
 `业务目录`下`源文件资源`数量较多时，我们第一直觉应该是：是否业务划分不够细？是否应该划分子业务，建立子业务目录？
 
+```
   biz2/
-      subbiz1/
-          list.js
-          list.tpl
-          list.css
-      subbiz2/
+    subbiz1/
+        list.js
+        list.tpl
+        list.css
+    subbiz2/
+```
 
 遇到确实是一个业务整体，无法划分子业务时， 允许将非`JS资源`按`文件类型`划分目录进行管理。
 
-    biz1/
-        css/
-            add.css
-            edit.css
-            remove.css
-            img/
-                add_button.png
-        tpl/
-            add.tpl
-            edit.tpl
-            remove.tpl
-        add.js
-        edit.js
-        remove.js
+```
+biz1/
+    css/
+        add.css
+        edit.css
+        remove.css
+        img/
+            add_button.png
+    tpl/
+        add.tpl
+        edit.tpl
+        remove.tpl
+    add.js
+    edit.js
+    remove.js
+```
 
 ```
 最小业务目录
