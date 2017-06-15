@@ -38,7 +38,28 @@
 
 ### 3.2 表示要求的动词
 
-在文档中，表示要求的动词的关键字“必须(MUST)”、“不得(MUST NOT)”、“应该(SHOULD)”、“不应该(SHOULD NOT)”、“可以(MAY)”、“必须(REQUIRED)”、“应当(SHALL)”、“不得(SHALL NOT)”、“推荐(RECOMMENDED)”、“可选(OPTIONAL)”被定义在[rfc2119](http://www.ietf.org/rfc/rfc2119.txt)中。
+表达的时候，必须严格区分哪些是"建议"（suggestion），哪些是"要求"（requirement）。所以，[RFC2119]((http://www.ietf.org/rfc/rfc2119.txt))专门对一些词语的涵义做出了规定，定义了五个关键词，表示"要求"的严格程度。
+
+- 必须 MUST、REQUIRED、SHALL
+
+  表示绝对要求这样做。
+
+- 不得 MUST NOT、SHALL
+  
+  表示绝对不要求这样做。
+  
+- 应该 SHOULD、RECOMMENDED
+  
+  表示一般情况下应该这样做，但是在某些特定情况下可以忽视这个要求。
+  
+- 不应该 SHOULD NOT、SHALL NOT
+  
+  表示一般情况下不应该这样做，但是在某些特定情况下可以忽视这个要求。
+  
+- 可以 MAY、OPTIONAL
+  
+  表示这个要求完全是可选的，你可以这样做，也可以不这样做。
+
 
 > 拓展阅读 [RFC2119：表示要求的动词](http://www.ruanyifeng.com/blog/2007/03/rfc2119.html)
 
