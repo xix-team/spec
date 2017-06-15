@@ -16,3 +16,15 @@
 - [包项目规范](package.md) [草稿]
 - [业务项目规范](project.md) [草稿]
 - [常用词命名统一表](naming.md) [草稿]
+
+## 3 保障方法
+
+- code format
+	- 统一编辑器配置
+- code lint
+	- lint校验
+- code inspect
+	- webstorm inspect
+	- sonar自动分析代码质量
+- code review
+	- 人工
