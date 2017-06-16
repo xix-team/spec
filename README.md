@@ -63,10 +63,6 @@
 
 > 拓展阅读 [RFC2119：表示要求的动词](http://www.ruanyifeng.com/blog/2007/03/rfc2119.html)
 
-## 4 使用方法
-
-待完善
-
 ## 5 保障方法
 
 - code format
