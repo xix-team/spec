@@ -13,9 +13,6 @@
 - [HTML 编码规范](html-style-guide.md) [草稿]
 - [源码文件规范](file.md) [草稿]
 - [目录结构规范](directory.md) [草稿]
-- [包项目规范](package.md) [草稿]
-- [业务项目规范](project.md) [草稿]
-- [常用词命名统一表](naming.md) [草稿]
 
 ## 3 规范书写要求
 
@@ -63,7 +60,7 @@
 
 > 拓展阅读 [RFC2119：表示要求的动词](http://www.ruanyifeng.com/blog/2007/03/rfc2119.html)
 
-## 5 保障方法
+## 4 保障方法
 
 - code format
 	- 统一编辑器配置
