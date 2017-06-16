@@ -134,20 +134,24 @@ biz
 遇到确实是一个业务整体，无法划分子业务时，允许将非`JS资源`按`资源类型`划分目录进行管理，即：`业务目录`下允许出现`css`、`tpl`目录。
 
 ```
-biz1/
-    css/
-        add.css
-        edit.css
-        remove.css
-        img/
-            add_button.png
-    tpl/
-        add.tpl
-        edit.tpl
-        remove.tpl
-    add.js
-    edit.js
-    remove.js
+biz
+├── css
+│   ├── add.css
+│   ├── edit.css
+│   ├── list.css
+│   └── img
+│       ├── default.png
+│       ├── icon.png
+│       └── index.png
+├── tpl
+│   ├── add.tpl
+│   ├── edit.tpl
+│   └── list.tpl
+├── img
+│   └── banner.png
+├── edit.js
+├── list.js
+└── add.js
 ```
 
 #### 4.2.1 入口资源
