@@ -84,28 +84,51 @@ root
 
 #### 业务目录划分原则
 
-根据`业务逻辑`划分的目录，我们称为`业务目录`。src目录内，绝大多数情况 *应当* 根据业务逻辑划分目录结构。
+根据`业务逻辑`划分的目录，我们称为`业务目录`。`静态资源目录`内，绝大多数情况 *应当* 根据业务逻辑划分目录结构。
 
 *鼓励* 将业务相关的`源文件资源`都直接置于`业务目录`下。
 
 ```
-    biz1/
-        img/
-            icon.png
-        add.js
-        add.tpl
-        add.css
+biz
+├── index.png
+├── index.css
+├── index.js
+└── index.tpl
+
+```
+
+`业务目录`下`内容资源`数量较多时，*允许* 按`资源类型`划分子目录。即：`业务目录`下允许出现`img`、`swf`、`font`目录。
+
+```
+biz
+├── font
+│   ├── iconfont.eot
+│   ├── iconfont.svg
+│   ├── iconfont.ttf
+│   └── iconfont.woff
+├── img
+│   ├── index.png
+│   ├── default.png
+│   └── favicon.ico
+├── swf
+│   └── board.swf
+├── index.js
+├── index.css
+└── index.tpl
 ```
 
 `业务目录`下`源文件资源`数量较多时，我们第一直觉应该是：是否业务划分不够细？是否应该划分子业务，建立子业务目录？需要划分子目录时，也 *必须* 继续遵守`业务逻辑`划分的原则，划分子业务。
 
 ```
-  biz2/
-    subbiz1/
-        list.js
-        list.tpl
-        list.css
-    subbiz2/
+biz
+├── subbiz1
+│   ├── index.css
+│   ├── index.js
+│   └── index.tpl
+└── subbiz2
+    ├── index.css
+    ├── index.js
+    └── index.tpl
 ```
 
 遇到确实是一个业务整体，无法划分子业务时，允许将非`JS资源`按`资源类型`划分目录进行管理，即：`业务目录`下允许出现`css`、`tpl`目录。
@@ -125,29 +148,6 @@ biz1/
     add.js
     edit.js
     remove.js
-```
-
-`业务目录`下`内容资源`数量较多时，*允许* 按`资源类型`划分目录。即：`业务目录`下允许出现`img`、`swf`、`font`目录。
-
-```
-最小业务目录
-├── css
-│   ├── item.css
-│   └── list.css
-├── font
-│   ├── iconfont.eot
-│   ├── iconfont.svg
-│   ├── iconfont.ttf
-│   └── iconfont.woff
-├── img
-│   ├── avatar.png
-│   ├── default.png
-│   └── favicon.ico
-├── swf
-│   └── board.swf
-├── index.js
-├── index.css
-└── index.tpl
 ```
 
 #### 4.2.1 入口资源
