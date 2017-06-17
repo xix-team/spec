@@ -177,6 +177,8 @@ biz
 
 **资源分类：**
 
+- 业务逻辑 
+
 **src：** 按业务逻辑划分
 
 **dist：** 输出umd规范的打包文件
@@ -213,7 +215,7 @@ biz
 
 ### 6.3 示例3
 
-说明：Web Page 模式，纯前端项目，多入口，非模块化，例如：静态官网。
+说明：Web Page 模式，纯前端项目，多入口，非模块化，例如：静态展示网站。
 
 **资源分类：**
 
@@ -226,27 +228,56 @@ biz
 
 ```
 ├── asset
+│   ├── app.js
+│   ├── authorize
+│   │   ├── img
+│   │   │   ├── header.png
+│   │   │   ├── iloka.png
+│   │   │   ├── toutiao.png
+│   │   │   ├── wechat.png
+│   │   │   └── weibo.png
+│   │   ├── index.js
+│   │   ├── result.css
+│   │   └── result.js
 │   ├── common
-│   ├── content
-│   ├── mobile
-│   └── index
-├── content.html
-├── mobile.html
-└── index.html
+│   │   ├── config.js
+│   │   └── util.js
+│   ├── oauth
+│   │   ├── callback.js
+│   │   └── index.js
+│   └── payment
+│       ├── wechat.css
+│       └── wechat.js
+├── authorize.html
+├── authorize-result.html
+├── oauth.html
+├── oauth-callback.html
+└── payment-wechat.html
 ```
 
 **dist：**
 
 ```
 ├── asset
-│   ├── common
-│   ├── content
-│   ├── mobile
-│   ├── index
-│   └── pkg       
-├── content.html
-├── mobile.html
-└── index.html
+│   ├── authorize
+│   │   ├── img
+│   │   │   ├── header.309ecb.png
+│   │   │   ├── iloka.8e661b.png
+│   │   │   ├── toutiao.4c0431.png
+│   │   │   ├── wechat.657d11.png
+│   │   │   └── weibo.d0f7f2.png
+│   └── pkg
+│       ├── authorize.aa43b1.js
+│       ├── authorize-result.390559.js
+│       ├── oauth.766f36.js
+│       ├── oauth-callback.719db6.js
+│       └── payment-wechat.77cf68.js
+├── authorize.html
+├── authorize-result.html
+├── oauth.html
+├── oauth-callback.html
+└── payment-wechat.html
+
 ```
 
 ### 6.4 示例4
@@ -264,12 +295,102 @@ biz
 **src：**
 
 ```
-
+├── app
+│   ├── common
+│   │   ├── ...
+│   │   └── iconfont
+│   │       ├── iconfont.eot
+│   │       ├── iconfont.svg
+│   │       ├── iconfont.ttf
+│   │       └── iconfont.woff
+│   └── m
+│       ├── app
+│       │   ├── index.js
+│       │   ├── index.less
+│       │   └── index.tpl
+│       ├── component
+│       │   ├── ...
+│       │   └── navbar
+│       │       ├── img
+│       │       │   ├── bao.png
+│       │       │   ├── shai.png
+│       │       │   └── wo.png
+│       │       ├── index.js
+│       │       ├── index.less
+│       │       └── index.tpl
+│       ├── page
+│       │   ├── ...
+│       │   └── home
+│       │       ├── img
+│       │       │   ├── money.png
+│       │       │   └── product.png
+│       │       ├── index.js
+│       │       ├── index.less
+│       │       └── index.tpl
+│       ├── route
+│       │   └── index.js
+│       ├── store
+│       │   └── ...
+│       └── index.js
+├── lib
+│   ├── ...
+│   ├── fastclick
+│   │   └── fastclick.js
+│   ├── flexible
+│   │   ├── flexible.js
+│   │   └── flexible_css.js
+│   ├── mod
+│   │   └── mod.js
+│   └── seed
+│       ├── loading.gif
+│       ├── seed.css
+│       └── seed.js
+├── favicon.ico
+├── favicon.png
+└── index.html
 ```
 
 **dist：**
 
 ```
+├── asset
+│   ├── app
+│   │   ├── common
+│   │   │   ├── ...
+│   │   │   └── iconfont
+│   │   │       ├── iconfont.276005.woff
+│   │   │       ├── iconfont.35515f.eot
+│   │   │       ├── iconfont.6358a8.ttf
+│   │   │       └── iconfont.e5a7cf.svg
+│   │   └── m
+│   │       ├── ...
+│   │       ├── component
+│   │       │   ├── ...
+│   │       │   └── navbar
+│   │       │       └── img
+│   │       │           ├── bao.1c858b.png
+│   │       │           ├── shai.4ec30f.png
+│   │       │           └── wo.d03d33.png
+│   │       └── page
+│   │           ├── ...
+│   │           └── list
+│   │               └── img
+│   │                   ├── money.607fb8.png
+│   │                   └── product.ecdd39.png
+│   ├── lib
+│   │   ├── ...
+│   │   └── seed
+│   │       ├── loading.38ed26.gif
+│   │       ├── seed.b5dcbc.css
+│   │       └── seed.eb7611.js
+│   └── pkg
+│       ├── lib.37e5d2.css
+│       ├── lib.48336d.js
+│       ├── app.65f637.css
+│       └── app.a700ad.js
+├── favicon.ico
+├── favicon.png
+└── index.html
 ```
 
 ### 6.5 示例5
@@ -295,6 +416,7 @@ biz
 │   │   ├── page
 │   │   ├── route
 │   │   ├── store
+│   │   ├── ...
 │   │   └── index.js
 │   ├── h5
 │   ├── index
@@ -313,20 +435,50 @@ biz
 ├── index.html
 ├── marketing.html
 ├── mobile.html
-├── package.json
 ├── platform.html
-├── robots.txt
-└── yarn.lock
+└── robots.txt
 ```
 
 **dist：**
 
 ```
+├── asset
+│   ├── app
+│   │   └── ...
+│   ├── lib
+│   │   └── ...
+│   └── pkg
+│       ├── common.9a9def.js
+│       ├── common.d41d59.css
+│       ├── content.037bbb.js
+│       ├── content.be468e.css
+│       ├── h5.95da69.js
+│       ├── h5.e3f125.css
+│       ├── index.acc1dd.css
+│       ├── index.b5e557.js
+│       ├── lib.3a7345.js
+│       ├── lib.c90e12.css
+│       ├── marketing.4aecf8.css
+│       ├── marketing.ced405.js
+│       ├── mobile.357ddb.css
+│       ├── mobile.c78d40.js
+│       ├── platform.bb6942.css
+│       └── platform.c393f9.js
+├── browser.html
+├── content.html
+├── h5.html
+├── index.html
+├── marketing.html
+├── mobile.html
+├── platform.html
+├── favicon.ico
+├── favicon.png
+└── robots.txt
 ```
 
 ### 6.6 示例6
 
-说明：Web App 模式，纯前端项目，单入口，一切皆模块，webpack构建，例如：C端商城。
+说明：Web App 模式，纯前端项目，单入口，一切皆模块，没有非模块化资源，webpack构建，例如：C端商城。
 
 **资源分类：**
 
@@ -344,6 +496,7 @@ biz
 │   ├── page
 │   ├── route
 │   ├── store
+│   ├── ...
 │   └── index.js
 ├── favicon.ico
 ├── favicon.png
@@ -353,11 +506,21 @@ biz
 **dist：**
 
 ```
+├── asset
+│   ├── img
+│   │   └── ...
+│   ├── font
+│   │   └── ...
+│   ├── app.bb6942.css
+│   └── app.c393f9.js
+├── favicon.ico
+├── favicon.png
+└── index.html
 ```
 
 ### 6.7 示例7
 
-说明：Web App 模式，纯前端项目，多入口，一切皆模块，webpack构建，例如：B端中台。
+说明：Web App 模式，纯前端项目，多入口，一切皆模块，没有非模块化资源，webpack构建，例如：B端中台。
 
 **资源分类：**
 
@@ -369,6 +532,7 @@ biz
 
 ```
 ├── common
+│   └── ...
 ├── content
 │   ├── app
 │   ├── component
@@ -377,10 +541,15 @@ biz
 │   ├── store
 │   └── index.js
 ├── h5
+│   └── ...
 ├── index
+│   └── ...
 ├── marketing
+│   └── ...
 ├── mobile
+│   └── ...
 ├── platform
+│   └── ...
 ├── favicon.ico
 ├── favicon.png
 └── index.tpl
@@ -389,7 +558,36 @@ biz
 **dist：**
 
 ```
-
+├── asset
+│   ├── img
+│   │   └── ...
+│   ├── font
+│   │   └── ...
+│   ├── common.9a9def.js
+│   ├── common.d41d59.css
+│   ├── content.037bbb.js
+│   ├── content.be468e.css
+│   ├── h5.95da69.js
+│   ├── h5.e3f125.css
+│   ├── index.acc1dd.css
+│   ├── index.b5e557.js
+│   ├── lib.3a7345.js
+│   ├── lib.c90e12.css
+│   ├── marketing.4aecf8.css
+│   ├── marketing.ced405.js
+│   ├── mobile.357ddb.css
+│   ├── mobile.c78d40.js
+│   ├── platform.bb6942.css
+│   └── platform.c393f9.js
+├── content.html
+├── h5.html
+├── index.html
+├── marketing.html
+├── mobile.html
+├── platform.html
+├── favicon.ico
+├── favicon.png
+└── robots.txt
 ```
 
 ### 6.8 示例8
