@@ -173,6 +173,8 @@ biz
 
 **静态资源常用分类说明**
 
+_以下只是参考，提供划分目录的思路，实际划分以业务为准。_
+
 - **入口资源**：前端入口页面、后端模板页面，通常直接放在 src 的根目录下，文件数量较多时，可以划分目录。
 - **静态资源**：可以命名为`asset`，也可以根据语言规范命名为`static`、`public`、`resource`等，存放静态资源文件。
   - **生态模块资源**：从 模块生态 下载的模块，属于外部依赖。
@@ -207,7 +209,7 @@ biz
 **src** 和 **dist** 目录结构一致
 
 ```
-├── asset
+├── asset (静态资源目录)
 │   ├── font
 │   │   ├── iconfont.eot
 │   │   ├── iconfont.svg
@@ -221,7 +223,7 @@ biz
 │   │   └── board.swf
 │   ├── index.css
 │   └── index.js
-└── index.html
+└── index.html (入口资源)
 ```
 
 ### 6.3 示例3
@@ -238,10 +240,10 @@ biz
 **src：**
 
 ```
-├── asset                               (静态资源)
-│   ├── common                          (业务公共资源)
+├── asset (静态资源目录)
+│   ├── common (业务公共资源目录)
 │   │   └── ...                         
-│   ├── authorize                       (业务场景资源)
+│   ├── authorize (业务场景资源目录)
 │   │   ├── img                         
 │   │   │   ├── header.png              
 │   │   │   ├── iloka.png               
@@ -252,29 +254,28 @@ biz
 │   │   ├── result.css                  
 │   │   └── result.js                   
 │   ├── oauth                           
-│   │   └── ...                         
 │   ├── payment                         
-│   │   └── ...                         
-│   └── app.js                          (应用框架)
+│   └── app.js (应用框架)
 ├── authorize.html                      
 ├── authorize-result.html               
 ├── oauth.html                          
-├── oauth-callback.html        
-└── payment-wechat.html                 (入口资源)
+├── oauth-callback.html
+└── payment-wechat.html (入口资源)
 ```
 
 **dist：**
 
 ```
-├── asset                               (静态资源)
-│   ├── authorize
+├── asset (静态资源目录)
+│   ├── authorize (打包后内容资源目录)
 │   │   └── img
 │   │       ├── header.309ecb.png
 │   │       ├── iloka.8e661b.png
 │   │       ├── toutiao.4c0431.png
 │   │       ├── wechat.657d11.png
 │   │       └── weibo.d0f7f2.png
-│   └── pkg                             (打包文件)
+│   ├── ...
+│   └── pkg (打包文件目录)
 │       ├── authorize.aa43b1.js
 │       ├── authorize-result.390559.js
 │       ├── oauth.766f36.js
@@ -284,7 +285,7 @@ biz
 ├── authorize-result.html
 ├── oauth.html                          
 ├── oauth-callback.html
-└── payment-wechat.html                 (入口资源)
+└── payment-wechat.html (入口资源)
 
 ```
 
@@ -304,15 +305,15 @@ biz
 **src：**
 
 ```
-├── app (应用非模块化资源)
-│   ├── common (业务公共资源)
+├── app (应用非模块化资源目录)
+│   ├── common (业务公共资源目录)
 │   │   ├── iconfont
 │   │   │   ├── iconfont.eot
 │   │   │   ├── iconfont.svg
 │   │   │   ├── iconfont.ttf
 │   │   │   └── iconfont.woff
 │   │   └── ...
-│   └── m (业务场景资源)
+│   └── m (业务场景资源目录)
 │       ├── page
 │       │   ├── home
 │       │   │   ├── img
@@ -324,7 +325,7 @@ biz
 │       │   └── ...
 │       ├── ...
 │       └── index.js
-├── lib (应用非模块化资源)
+├── lib (应用非模块化资源目录)
 │   ├── ...
 │   ├── fastclick
 │   │   └── fastclick.js
@@ -337,7 +338,7 @@ biz
 │       ├── loading.gif
 │       ├── seed.css
 │       └── seed.js
-├── node_modules (生态模块资源)
+├── node_modules (生态模块资源目录)
 ├── favicon.ico
 ├── favicon.png
 └── index.html (入口资源)
@@ -346,8 +347,8 @@ biz
 **dist：**
 
 ```
-├── asset (静态资源)
-│   ├── app
+├── asset (静态资源目录)
+│   ├── app (打包后内容资源目录)
 │   │   ├── common
 │   │   │   ├── iconfont
 │   │   │   │   ├── iconfont.276005.woff
@@ -363,20 +364,20 @@ biz
 │   │       │   │       └── product.ecdd39.png
 │   │       │   └── ...
 │   │       └── ...
-│   ├── lib
+│   ├── lib (打包后非模块资源目录)
 │   │   ├── seed
 │   │   │   ├── loading.38ed26.gif
 │   │   │   ├── seed.b5dcbc.css
 │   │   │   └── seed.eb7611.js
 │   │   └── ...
-│   └── pkg (打包文件)
+│   └── pkg (打包文件目录)
 │       ├── lib.37e5d2.css
 │       ├── lib.48336d.js
 │       ├── app.65f637.css
 │       └── app.a700ad.js
 ├── favicon.ico
 ├── favicon.png
-└── index.html
+└── index.html (入口资源)
 ```
 
 ### 6.5 示例5
@@ -395,14 +396,9 @@ biz
 **src：**
 
 ```
-├── app (应用模块化资源)
-│   ├── common (业务公共资源)
-│   ├── content (业务场景资源)
-│   │   ├── app
-│   │   ├── component
-│   │   ├── page
-│   │   ├── route
-│   │   ├── store
+├── app (应用模块化资源目录)
+│   ├── common (业务公共资源目录)
+│   ├── content (业务场景资源目录)
 │   │   ├── ...
 │   │   └── index.js
 │   ├── h5
@@ -410,11 +406,12 @@ biz
 │   ├── marketing
 │   ├── mobile
 │   └── platform
-├── lib (应用非模块化资源)
+├── lib (应用非模块化资源目录)
 │   ├── mod
 │   ├── seed
-│   └── ueditor
-├── node_modules (生态模块资源)
+│   ├── ueditor
+│   └── ...
+├── node_modules (生态模块资源目录)
 ├── content.html
 ├── favicon.ico
 ├── favicon.png
@@ -429,12 +426,12 @@ biz
 **dist：**
 
 ```
-├── asset (静态资源)
-│   ├── app
+├── asset (静态资源目录)
+│   ├── app (打包后内容资源目录)
 │   │   └── ...
-│   ├── lib
+│   ├── lib (打包后非模块化资源目录)
 │   │   └── ...
-│   └── pkg
+│   └── pkg (打包文件目录)
 │       ├── common.9a9def.js
 │       ├── common.d41d59.css
 │       ├── content.037bbb.js
@@ -456,7 +453,7 @@ biz
 ├── index.html
 ├── marketing.html
 ├── mobile.html
-├── platform.html
+├── platform.html (入口资源)
 ├── favicon.ico
 ├── favicon.png
 └── robots.txt
@@ -476,13 +473,8 @@ biz
 **src：**
 
 ```
-├── common (应用业务公共资源)
-├── m (应用业务场景资源)
-│   ├── app
-│   ├── component
-│   ├── page
-│   ├── route
-│   ├── store
+├── common (应用业务公共资源目录)
+├── m (应用业务场景资源目录)
 │   ├── ...
 │   └── index.js
 ├── favicon.ico
@@ -493,10 +485,10 @@ biz
 **dist：**
 
 ```
-├── asset (静态资源)
-│   ├── img
+├── asset (静态资源目录)
+│   ├── img (打包后图片资源目录)
 │   │   └── ...
-│   ├── font
+│   ├── font (打包后字体资源目录)
 │   │   └── ...
 │   ├── app.bb6942.css (aio打包文件)
 │   └── app.c393f9.js  (aio打包文件)
@@ -519,37 +511,29 @@ biz
 **src：**
 
 ```
-├── common (业务公共资源)
+├── common (业务公共资源目录)
 │   └── ...
-├── content (业务场景资源)
-│   ├── app
-│   ├── component
-│   ├── page
-│   ├── route
-│   ├── store
+├── content (业务场景资源目录)
+│   ├── ...
 │   └── index.js
 ├── h5
-│   └── ...
 ├── index
-│   └── ...
 ├── marketing
-│   └── ...
 ├── mobile
-│   └── ...
 ├── platform
 │   └── ...
 ├── favicon.ico
 ├── favicon.png
-└── index.tpl (入口资源)
+└── index.tpl (入口资源模版)
 ```
 
 **dist：**
 
 ```
-├── asset (静态资源)
-│   ├── img (图片资源)
+├── asset (静态资源目录)
+│   ├── img (打包后图片资源目录)
 │   │   └── ...
-│   ├── font (字体资源)
+│   ├── font (打包后字体资源目录)
 │   │   └── ...
 │   ├── common.9a9def.js
 │   ├── common.d41d59.css
@@ -593,15 +577,15 @@ biz
 **src** 和 **dist** 目录结构一致
 
 ```
-├── public (静态资源)
-│   ├── common (业务公共资源)
-│   ├── user (业务场景资源)
-│   ├── index (业务场景资源)
+├── public (静态资源目录)
+│   ├── common (业务公共资源目录)
+│   ├── user (业务场景资源目录)
+│   ├── index (业务场景资源目录)
 │   └── ...
 ├── routes
 │   ├── index.js
 │   └── users.js
-├── views (入口资源)
+├── views (入口资源目录)
 │   ├── error.jade
 │   ├── index.jade
 │   └── layout.jade
@@ -609,12 +593,12 @@ biz
 ```
 
 ```
-├── index.jsp (入口资源)
-├── META-INF  (动态资源)
-├── WEB-INF   (动态资源)
+├── index.jsp (入口资源目录)
+├── META-INF  (动态资源目录)
+├── WEB-INF   (动态资源目录)
 └── resources (静态资源)
-    ├── common (业务公共资源)
-    ├── index  (业务场景资源)
+    ├── common (业务公共资源目录)
+    ├── index  (业务场景资源目录)
     └── ...
 ```
 
