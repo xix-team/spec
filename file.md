@@ -8,7 +8,7 @@
 
 ## 2 文件命名 
 
-- 使用 `all-lowercase-with-dashes` 命名方式。文件名建议只使用小写字母，不使用大写字母；文件名包含多个单词时，单词之间建议使用半角的连词线（-）分隔。 
+- 使用 `all-lowercase-with-dashes命名方式。文件名建议只使用小写字母，不使用大写字母；文件名包含多个单词时，单词之间建议使用半角的连词线（-）分隔。 
 - 为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE。
 
 > 扩展阅读 [all-lowercase-with-dashes](http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html)
@@ -40,7 +40,6 @@
 /**
  * 文件描述
  * @copyright Copyright ${COMPNAY} All Rights Reserved.
- * @author ${USER} <${EMAIL}>
  * @author ${USER} <${EMAIL}>
  * @since ${DATE}
  */

@@ -144,7 +144,6 @@
  * 文件描述
  * @copyright Copyright ${COMPNAY} All Rights Reserved.
  * @author ${USER} <${EMAIL}>
- * @author ${USER} <${EMAIL}>
  * @since ${DATE}
  */
 ```
