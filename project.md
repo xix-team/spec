@@ -12,7 +12,7 @@
 
 [项目代号].[类型:m|api|bs].[环境:dev|sit|uat].[域名] 
 
-## package.json
+## 4 package.json
 
 **配置参考：**
 
@@ -34,15 +34,15 @@
 
 详细规则请参考 [package.json 中文说明文档](https://github.com/undead25/package.json) 和 [package.json 官方说明文档](https://docs.npmjs.com/files/package.json)。
 
-## 4 文件规范
+## 5 文件规范
 
 请参考[源码文件规范](file.md)。
 
-## 5 目录规范
+## 6 目录规范
 
 请参考[目录结构规范](directory.md)。
 
-## 6 参考资料
+## 7 参考资料
 
 - http://semver.org/lang/zh-CN/
 - https://docs.npmjs.com/files/package.json
