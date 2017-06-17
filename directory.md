@@ -100,7 +100,7 @@ root
 
 ### 5.4 组件目录划分
 
-组件是最小的开发单位，`组件目录`内独立维护自己的 HTML、JS、CSS、IMG 等文件。
+组件是最小的开发单位，`组件目录`内独立维护自己的 js、css、模板、图片 等文件。
 
 *鼓励* 将业务相关的`源文件资源`都直接置于`组件目录`下。
 
@@ -171,6 +171,17 @@ biz
 
 ## 6 src 和 dist 目录参考示例
 
+**静态资源常用分类说明**
+
+- **入口资源**：前端入口页面、后端模板页面，通常直接放在 src 的根目录下，文件数量较多时，可以划分目录。
+- **静态资源**：可以命名为`asset`，也可以根据语言规范命名为`static`、`public`、`resource`等，存放静态资源文件。
+  - **生态模块资源**：从 模块生态 下载的模块，属于外部依赖。
+  - **应用模块化资源**：可以命名为`app`，存放当前应用的业务模块。这些模块通常跟业务耦合较高，是具有独立性的模块化资源。每个模块将自己所需要的js、css、模板、图片等资源放在一起维护。
+      - **业务公共资源**：可以命名为`common`，用于存放业务项目的业务公共文件。
+      - **业务场景资源**：根据业务场景命名，多页面下，一般与入口资源同名；单页面下，一般与项目代号同名，为未来项目留下扩展的后路。
+  - **应用非模块化资源**：可以命名为`lib`，虽然在模块化开发体系内，应该一切皆模块，但总有不应该成为模块的资源，比如模块化框架、页面启动器等。
+- **动态资源**：根据后端语言规范划分和命名。
+
 ### 6.1 示例1
 
 说明：包项目
@@ -227,46 +238,43 @@ biz
 **src：**
 
 ```
-├── asset
-│   ├── app.js
-│   ├── authorize
-│   │   ├── img
-│   │   │   ├── header.png
-│   │   │   ├── iloka.png
-│   │   │   ├── toutiao.png
-│   │   │   ├── wechat.png
-│   │   │   └── weibo.png
-│   │   ├── index.js
-│   │   ├── result.css
-│   │   └── result.js
-│   ├── common
-│   │   ├── config.js
-│   │   └── util.js
-│   ├── oauth
-│   │   ├── callback.js
-│   │   └── index.js
-│   └── payment
-│       ├── wechat.css
-│       └── wechat.js
-├── authorize.html
-├── authorize-result.html
-├── oauth.html
-├── oauth-callback.html
-└── payment-wechat.html
+├── asset                               (静态资源)
+│   ├── common                          (业务公共资源)
+│   │   └── ...                         
+│   ├── authorize                       (业务场景资源)
+│   │   ├── img                         
+│   │   │   ├── header.png              
+│   │   │   ├── iloka.png               
+│   │   │   ├── toutiao.png             
+│   │   │   ├── wechat.png              
+│   │   │   └── weibo.png               
+│   │   ├── index.js                    
+│   │   ├── result.css                  
+│   │   └── result.js                   
+│   ├── oauth                           
+│   │   └── ...                         
+│   ├── payment                         
+│   │   └── ...                         
+│   └── app.js                          (应用框架)
+├── authorize.html                      
+├── authorize-result.html               
+├── oauth.html                          
+├── oauth-callback.html        
+└── payment-wechat.html                 (入口资源)
 ```
 
 **dist：**
 
 ```
-├── asset
+├── asset                               (静态资源)
 │   ├── authorize
-│   │   ├── img
-│   │   │   ├── header.309ecb.png
-│   │   │   ├── iloka.8e661b.png
-│   │   │   ├── toutiao.4c0431.png
-│   │   │   ├── wechat.657d11.png
-│   │   │   └── weibo.d0f7f2.png
-│   └── pkg
+│   │   └── img
+│   │       ├── header.309ecb.png
+│   │       ├── iloka.8e661b.png
+│   │       ├── toutiao.4c0431.png
+│   │       ├── wechat.657d11.png
+│   │       └── weibo.d0f7f2.png
+│   └── pkg                             (打包文件)
 │       ├── authorize.aa43b1.js
 │       ├── authorize-result.390559.js
 │       ├── oauth.766f36.js
@@ -274,65 +282,49 @@ biz
 │       └── payment-wechat.77cf68.js
 ├── authorize.html
 ├── authorize-result.html
-├── oauth.html
+├── oauth.html                          
 ├── oauth-callback.html
-└── payment-wechat.html
+└── payment-wechat.html                 (入口资源)
 
 ```
 
 ### 6.4 示例4
 
-说明：Web App 模式，纯前端项目，单入口，有非模块化资源，有模块化资源，fis3构建，例如：C端商城。
+说明：Web App 模式，纯前端项目，单入口，有生态模块资源，有非模块化资源，有模块化资源，fis3构建，例如：C端商城。
 
 **资源分类：**
 
 - **入口资源**
-- **非模块化资源**
-- **模块化资源**
+- **生态模块资源**
+- **应用模块化资源**
+- **应用非模块化资源**
   - **业务公共资源**
   - **业务场景资源**
 
 **src：**
 
 ```
-├── app
-│   ├── common
-│   │   ├── ...
-│   │   └── iconfont
-│   │       ├── iconfont.eot
-│   │       ├── iconfont.svg
-│   │       ├── iconfont.ttf
-│   │       └── iconfont.woff
-│   └── m
-│       ├── app
-│       │   ├── index.js
-│       │   ├── index.less
-│       │   └── index.tpl
-│       ├── component
-│       │   ├── ...
-│       │   └── navbar
-│       │       ├── img
-│       │       │   ├── bao.png
-│       │       │   ├── shai.png
-│       │       │   └── wo.png
-│       │       ├── index.js
-│       │       ├── index.less
-│       │       └── index.tpl
+├── app (应用非模块化资源)
+│   ├── common (业务公共资源)
+│   │   ├── iconfont
+│   │   │   ├── iconfont.eot
+│   │   │   ├── iconfont.svg
+│   │   │   ├── iconfont.ttf
+│   │   │   └── iconfont.woff
+│   │   └── ...
+│   └── m (业务场景资源)
 │       ├── page
-│       │   ├── ...
-│       │   └── home
-│       │       ├── img
-│       │       │   ├── money.png
-│       │       │   └── product.png
-│       │       ├── index.js
-│       │       ├── index.less
-│       │       └── index.tpl
-│       ├── route
-│       │   └── index.js
-│       ├── store
+│       │   ├── home
+│       │   │   ├── img
+│       │   │   │   ├── money.png
+│       │   │   │   └── product.png
+│       │   │   ├── index.js
+│       │   │   ├── index.less
+│       │   │   └── index.tpl
 │       │   └── ...
+│       ├── ...
 │       └── index.js
-├── lib
+├── lib (应用非模块化资源)
 │   ├── ...
 │   ├── fastclick
 │   │   └── fastclick.js
@@ -345,45 +337,39 @@ biz
 │       ├── loading.gif
 │       ├── seed.css
 │       └── seed.js
+├── node_modules (生态模块资源)
 ├── favicon.ico
 ├── favicon.png
-└── index.html
+└── index.html (入口资源)
 ```
 
 **dist：**
 
 ```
-├── asset
+├── asset (静态资源)
 │   ├── app
 │   │   ├── common
-│   │   │   ├── ...
-│   │   │   └── iconfont
-│   │   │       ├── iconfont.276005.woff
-│   │   │       ├── iconfont.35515f.eot
-│   │   │       ├── iconfont.6358a8.ttf
-│   │   │       └── iconfont.e5a7cf.svg
+│   │   │   ├── iconfont
+│   │   │   │   ├── iconfont.276005.woff
+│   │   │   │   ├── iconfont.35515f.eot
+│   │   │   │   ├── iconfont.6358a8.ttf
+│   │   │   │   └── iconfont.e5a7cf.svg
+│   │   │   └── ...
 │   │   └── m
-│   │       ├── ...
-│   │       ├── component
-│   │       │   ├── ...
-│   │       │   └── navbar
-│   │       │       └── img
-│   │       │           ├── bao.1c858b.png
-│   │       │           ├── shai.4ec30f.png
-│   │       │           └── wo.d03d33.png
-│   │       └── page
-│   │           ├── ...
-│   │           └── list
-│   │               └── img
-│   │                   ├── money.607fb8.png
-│   │                   └── product.ecdd39.png
+│   │       ├── page
+│   │       │   ├── home
+│   │       │   │   └── img
+│   │       │   │       ├── money.607fb8.png
+│   │       │   │       └── product.ecdd39.png
+│   │       │   └── ...
+│   │       └── ...
 │   ├── lib
-│   │   ├── ...
-│   │   └── seed
-│   │       ├── loading.38ed26.gif
-│   │       ├── seed.b5dcbc.css
-│   │       └── seed.eb7611.js
-│   └── pkg
+│   │   ├── seed
+│   │   │   ├── loading.38ed26.gif
+│   │   │   ├── seed.b5dcbc.css
+│   │   │   └── seed.eb7611.js
+│   │   └── ...
+│   └── pkg (打包文件)
 │       ├── lib.37e5d2.css
 │       ├── lib.48336d.js
 │       ├── app.65f637.css
@@ -395,22 +381,23 @@ biz
 
 ### 6.5 示例5
 
-说明：Web App 模式，纯前端项目，多入口，有非模块化资源，有模块化资源，fis3构建，例如：B端中台。
+说明：Web App 模式，纯前端项目，多入口，有生态模块资源，有非模块化资源，有模块化资源，fis3构建，例如：B端中台。
 
 **资源分类：**
 
 - **入口资源**
-- **非模块化资源**
-- **模块化资源**
+- **生态模块资源**
+- **应用模块化资源**
+- **应用非模块化资源**
   - **业务公共资源**
   - **业务场景资源**
 
 **src：**
 
 ```
-├── app
-│   ├── common
-│   ├── content
+├── app (应用模块化资源)
+│   ├── common (业务公共资源)
+│   ├── content (业务场景资源)
 │   │   ├── app
 │   │   ├── component
 │   │   ├── page
@@ -423,11 +410,11 @@ biz
 │   ├── marketing
 │   ├── mobile
 │   └── platform
-├── lib
+├── lib (应用非模块化资源)
 │   ├── mod
 │   ├── seed
 │   └── ueditor
-├── browser.html
+├── node_modules (生态模块资源)
 ├── content.html
 ├── favicon.ico
 ├── favicon.png
@@ -435,14 +422,14 @@ biz
 ├── index.html
 ├── marketing.html
 ├── mobile.html
-├── platform.html
+├── platform.html (入口资源)
 └── robots.txt
 ```
 
 **dist：**
 
 ```
-├── asset
+├── asset (静态资源)
 │   ├── app
 │   │   └── ...
 │   ├── lib
@@ -464,7 +451,6 @@ biz
 │       ├── mobile.c78d40.js
 │       ├── platform.bb6942.css
 │       └── platform.c393f9.js
-├── browser.html
 ├── content.html
 ├── h5.html
 ├── index.html
@@ -478,19 +464,20 @@ biz
 
 ### 6.6 示例6
 
-说明：Web App 模式，纯前端项目，单入口，一切皆模块，没有非模块化资源，webpack构建，例如：C端商城。
+说明：Web App 模式，纯前端项目，单入口，有生态模块资源，一切皆模块，没有非模块化资源，webpack构建，例如：C端商城。
 
 **资源分类：**
 
 - **入口资源**
-- **业务公共资源**
-- **业务场景资源**
+- **生态模块资源**
+- **应用业务公共资源**
+- **应用业务场景资源**
   
 **src：**
 
 ```
-├── common
-├── m
+├── common (应用业务公共资源)
+├── m (应用业务场景资源)
 │   ├── app
 │   ├── component
 │   ├── page
@@ -500,40 +487,41 @@ biz
 │   └── index.js
 ├── favicon.ico
 ├── favicon.png
-└── index.tpl
+└── index.tpl (入口资源)
 ```
 
 **dist：**
 
 ```
-├── asset
+├── asset (静态资源)
 │   ├── img
 │   │   └── ...
 │   ├── font
 │   │   └── ...
-│   ├── app.bb6942.css
-│   └── app.c393f9.js
+│   ├── app.bb6942.css (aio打包文件)
+│   └── app.c393f9.js  (aio打包文件)
 ├── favicon.ico
 ├── favicon.png
-└── index.html
+└── index.html (入口资源)
 ```
 
 ### 6.7 示例7
 
-说明：Web App 模式，纯前端项目，多入口，一切皆模块，没有非模块化资源，webpack构建，例如：B端中台。
+说明：Web App 模式，纯前端项目，多入口，有生态模块资源，一切皆模块，没有非模块化资源，webpack构建，例如：B端中台。
 
 **资源分类：**
 
 - **入口资源**
+- **生态模块资源**
 - **业务公共资源**
 - **业务场景资源**
 
 **src：**
 
 ```
-├── common
+├── common (业务公共资源)
 │   └── ...
-├── content
+├── content (业务场景资源)
 │   ├── app
 │   ├── component
 │   ├── page
@@ -552,16 +540,16 @@ biz
 │   └── ...
 ├── favicon.ico
 ├── favicon.png
-└── index.tpl
+└── index.tpl (入口资源)
 ```
 
 **dist：**
 
 ```
-├── asset
-│   ├── img
+├── asset (静态资源)
+│   ├── img (图片资源)
 │   │   └── ...
-│   ├── font
+│   ├── font (字体资源)
 │   │   └── ...
 │   ├── common.9a9def.js
 │   ├── common.d41d59.css
@@ -581,7 +569,7 @@ biz
 │   └── platform.c393f9.js
 ├── content.html
 ├── h5.html
-├── index.html
+├── index.html (入口资源)
 ├── marketing.html
 ├── mobile.html
 ├── platform.html
@@ -605,28 +593,28 @@ biz
 **src** 和 **dist** 目录结构一致
 
 ```
-├── app.js
-├── public
-│   ├── common
-│   ├── user
-│   ├── index
+├── public (静态资源)
+│   ├── common (业务公共资源)
+│   ├── user (业务场景资源)
+│   ├── index (业务场景资源)
 │   └── ...
 ├── routes
 │   ├── index.js
 │   └── users.js
-└── views
-    ├── error.jade
-    ├── index.jade
-    └── layout.jade
+├── views (入口资源)
+│   ├── error.jade
+│   ├── index.jade
+│   └── layout.jade
+└── app.js
 ```
 
 ```
-├── index.jsp
-├── META-INF
-├── WEB-INF
-└── resources
-    ├── common
-    ├── index
+├── index.jsp (入口资源)
+├── META-INF  (动态资源)
+├── WEB-INF   (动态资源)
+└── resources (静态资源)
+    ├── common (业务公共资源)
+    ├── index  (业务场景资源)
     └── ...
 ```
 
@@ -637,31 +625,3 @@ biz
 
 #### [返回目录](README.md)
 #### [回到顶部](#)
-
-
-- **入口资源**：前端入口页面、后端模板页面。
-- **静态资源目录**：可以命名为`asset`，也可以根据语言规范命名为`static`、`public`、`resource`等，存放静态资源文件。
-  - **应用模块目录**：可以命名为`app`，存放当前应用的业务模块。
-    - **业务公共目录**：可以命名为`common`，用于存放业务项目的业务公共文件。
-    - **业务场景目录**：根据业务场景命名，多页面下，一般与前端入口文件同名；单页面下，一般与项目代号同名，为未来项目留下扩展的后路。
-  - **依赖模块目录**：存放模块化框架、页面启动器。
-- **动态资源目录**：可以命名为`server`，也可以根据后端语言规范划分和命名，存放动态资源文件。
-
-
-在scrat中静态资源分成 模块化资源 和 非模块化资源 两类，其中模块化资源还分为 工程模块 和 生态模块 两类。
-
-静态资源分类
-
-模块化资源：具有独立性的模块所对应的静态资源。每个独立的模块将自己所需要的js、css、模板、图片等资源放在一起维护，使得模块具备独立性，引用模块的js即可。
-工程模块：当前工程所开发的模块。这些模块通常跟业务耦合较高。
-生态模块：从 模块生态 下载的模块，属于外部依赖。
-非模块化资源：虽然在模块化开发体系内，应该 一切皆模块，但总有不应该成为模块的资源，比如入口页面、模块化框架、页面启动器等。
-其目录规范为：
-
-project
-  ├─ component_modules (生态模块)
-  ├─ components        (工程模块)
-  ├─ views             (非模块化资源)
-  ├─ ...
-如果把所有资源都扔到 views 目录下，scrat也可以退化为传统的无模块前端项目，模块化与非模块化资源之间的平衡可以由开发者自己把握。
-
